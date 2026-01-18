@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <div class="theme-toggle-container">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <h1>Pentagon Company</h1>
+    <div class="mainpage-p">
+        <p>
+            Welcome to the Pentagon Company.
+            We are a friend group that makes funny videos for you to enjoy. Most schedules will be listed here. Teasers
+            for
+            the next video will also be posted here occasionally. (SIDE NOTE: This is a school project we won't actually
+            update anything here.)
+        </p>
+    </div>
+    <div class="pentagon-container">
+        <img src="PentagonLogo.png" alt="PentagonLogo">
+    </div>
+    <div class="cookie-container">
+        <a href="members.html">
+            <img src="CookieCat.png" alt="CookieCatLogo" />
+        </a>
+    </div>
+    <div class="journal-container">
+        <a href="roadmap.html">
+            <img src="journal.png" alt="Journallogo" />
+    </div>
+    <div class="youtube-container">
+        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
+            <img src="YouTubePixel.png" alt="YouTubeLogo">
+    </div>
+    <div class="paintbrush-container">
+        <a href= "gallery.html">
+            <img src="Paintbrush Palette.png" alt="Paintbrush">
+        </a>
+    </div>
+    <div class="credits-container">
+        <a href = "credits.html">
+            <img src="Credits.png" alt="Credits">
+        </a>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+
+        // Toggle theme on switch change
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+
+</html>
+</DOCTYPE>

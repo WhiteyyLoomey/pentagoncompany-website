@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <div class="theme-toggle-container">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <h1> Roadmap!</h1>
+    <div class="roadmap-p">
+        <p>
+            <a href="mainpage.html">Main Page</a>
+        </p>
+        <p>Hayden's EXCITING! Beating Allegations
+            - (IN PROGRESS!) - Release Date: Late 2025
+        </p>
+
+        <p>
+            Wintering The Fair - (IN PROGRESS!) - Release Date: December 25th
+        </p>
+
+        <p>
+            Brandan's Unlimited Flex Works (KJ Parody) - (ON HOLD!) - Release Date: Early 2026
+        </p>
+
+        <p>
+            Paragon Company Anime Opening/Ending - (ON HOLD!) - Release Date: Late 2026
+        </p>
+    </div>
+    <div class="star">
+        <img src="star.png" alt="starlogo">
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+
+        // Toggle theme on switch change
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+
+</html>

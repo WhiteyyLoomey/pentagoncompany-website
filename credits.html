@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <div class="theme-toggle-container">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="mpbuttoncredits">
+        <a href="mainpage.html">Main Page</a>
+    </div>
+    <h1> Credits</h1>
+    <div class="whiteyycredits">
+        <img id="whiteyy-img" src="WhiteyyWebsite1.png">
+    </div>
+    <div class="creditsright1">
+        <p>
+            "We should make this website completley in pixel art."
+        </p>
+    </div> 
+    <div class="gitacredits">
+        <img id="gita-img" src="GitaWebsite1.png">
+    </div>
+    <div class="creditsright2">
+        <p>
+            "Teratoma is kind of an bad game."
+        </p>
+    </div>
+    <div class="lokuscredits">
+        <img id="lokus-img" src="LokusWebsite1.png">
+    </div>
+    <div class="creditsright3">
+        <p>
+            "Amo is #1."
+        </p>
+    </div>
+    <div class="brandancredits">
+        <img id="brandan-img" src="BrandanWebsite1.png">
+    </div>
+    <div class="creditsright4">
+        <p>
+            "We should turn ourselves hollow so we can embrace our inner knights."
+        </p>
+    </div>
+
+    <div class="ariacredits">
+        <img id="aria-img" src="PochitaWebsite1.png">
+    </div>
+    <div class="creditsright5">
+        <p>
+            "I want to go to sleep."
+        </p>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Get image elements
+        const whiteyyImg = document.getElementById('whiteyy-img');
+        const gitaImg = document.getElementById('gita-img');
+        const lokusImg = document.getElementById('lokus-img');
+        const brandanImg = document.getElementById('brandan-img');
+        const ariaImg = document.getElementById('aria-img');
+
+        // Function to update images based on theme
+        function updateImages(isDarkMode) {
+            if (isDarkMode) {
+                if (whiteyyImg) whiteyyImg.src = 'WhiteyyWebsite2.png';
+                if (gitaImg) gitaImg.src = 'GitaWebsite2.png';
+                if (lokusImg) lokusImg.src = 'LokusWebsite2.png';
+                if (brandanImg) brandanImg.src = 'BrandanWebsite2.png';
+                if (ariaImg) ariaImg.src = 'PochitaWebsite2.png';
+            } else {
+                if (whiteyyImg) whiteyyImg.src = 'WhiteyyWebsite1.png';
+                if (gitaImg) gitaImg.src = 'GitaWebsite1.png';
+                if (lokusImg) lokusImg.src = 'LokusWebsite1.png';
+                if (brandanImg) brandanImg.src = 'BrandanWebsite1.png';
+                if (ariaImg) ariaImg.src = 'PochitaWebsite1.png';
+            }
+        }
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggle.checked = true;
+            updateImages(true);
+        } else {
+            updateImages(false);
+        }
+
+        // Toggle theme on switch change
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                updateImages(true);
+            } else {
+                html.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                updateImages(false);
+            }
+        });
+    </script>
+</body>
+
+</html>
